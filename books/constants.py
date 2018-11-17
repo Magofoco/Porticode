@@ -30,60 +30,30 @@ STATUS_CHOICES = (
     (EXCHANGED, 'Exhanged already')
 )
 
-
 GENRE_CHOICES = (
-        ('m', 'Masculine'),
-        ('f', 'Feminine'),
-    )
+    ('m', 'Masculine'),
+    ('f', 'Feminine'),
+)
 
 PREFERENCE_CHOICES = (
-        ('Science fiction', ''),
-        ('Romance', ''),
-        ('Horror', ''),
-        ('Travel', ''),
-        ('Satire', ''),
-        ('Religion', ''),
-        ('History', ''),
-        ('Science', ''),
-        ('Poetry', ''),
-        ('Encyclopedias', ''),
-        ('History', ''),
-        ('History', ''),
-    )
-
-Science
-fiction
-Satire
-Drama
-Action and Adventure
-Romance
-Mystery
-Horror
-Self
-help
-Health
-Guide
-Travel
-Children
-'s
-Religion, Spirituality & New
-Age
-Science
-History
-Math
-Anthology
-Poetry
-Encyclopedias
-Dictionaries
-Comics
-Art
-Cookbooks
-Diaries
-Journals
-Prayer
-books
-Series
-Trilogy
-Biographies
-Autobiographies
-Fantasy
+    ('Science fiction', 'Science fiction'),
+    ('Romance', 'Romance'),
+    ('Horror', 'Horror'),
+    ('Travel', 'Travel'),
+    ('Satire', 'Satire'),
+    ('Religion', 'Religion'),
+    ('History', 'History'),
+    ('Science', 'Science'),
+    ('Poetry', 'Poetry'),
+    ('Encyclopedias', 'Encyclopedias'),
+    ('Dictionaries', 'Dictionaries'),
+    ('Comics', 'Comics'),
+    ('Art', 'Art'),
+    ('Cookbooks', 'Cookbooks'),
+    ('Diaries', 'Diaries'),
+    ('Journals', 'Journals'),
+    ('Prayer', 'Prayer'),
+    ('Series', 'Series'),
+    ('Biographies', 'Biographies'),
+    ('Fantasy', 'Fantasy'),
+)
