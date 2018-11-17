@@ -30,9 +30,10 @@ STATUS_CHOICES = (
     (EXCHANGED, 'Exhanged already')
 )
 
-GENRE_CHOICES = (
+GENDER_CHOICES = (
     ('m', 'Masculine'),
     ('f', 'Feminine'),
+    ('o', 'Other')
 )
 
 PREFERENCE_CHOICES = (
