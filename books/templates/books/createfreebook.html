@@ -8,7 +8,7 @@
 <br>
 {% endif %}
 
-<h1>Add a book to exchange</h1>
+<h1>Add a book to exchange as Free</h1>
 
 <form method="POST" action="{% url 'createexchangebook' %}" enctype="multipart/form-data">
   {% csrf_token %}
@@ -22,8 +22,8 @@
   <input type="textbox" name="body" />
   <br>
   <br>
-  This books is going to be uploaded as:
-  <input type="radio" name="exchange_choices" value="FREE" default="FREE"> Free
+  This books is going to be uploaded as Free
+  <input type="hidden" name="exchange_choices" value="FREE" checked="checked">
   <br>
   If you want to change, please go to:
   <a href="{% url 'welcome' %}">Change medium</a>
