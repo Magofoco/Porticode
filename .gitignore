@@ -1,4 +1,5 @@
 *.pyc
 mysite/*.pyc
+**/migrations/*
 *.db
 db.bookbarterdb
