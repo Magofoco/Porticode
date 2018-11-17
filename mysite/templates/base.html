@@ -1,7 +1,8 @@
 <!doctype html>
 <html lang="en">
+
 <head>
-  {% load staticfiles %}
+  {% load static %}
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
@@ -9,46 +10,45 @@
 
   <title>BookBarter</title>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="{% url 'home' %}">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="{% url 'home' %}">
       <img src="{% static 'bookbarterlogo.png' %}" height=30 width=30 class="d-inline-block alighn-top" />
       BookBarter
-      </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
+      aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       {% if user.is_authenticated %}
-        <div class="navbar-nav ml-auto">
-          <a class="nav-item nav-link" href="{% url 'create' %}">Add a book</a>
-          <a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
-          <a class="nav-item nav-link" href="{% url 'profile' %}">Your Profile</a>
-        </div>
-      {% else %}
-        <div class="navbar-nav ml-auto">
-          <a class="nav-item nav-link" href="{% url 'signup' %}">Sign Up</a>
-          <a class="nav-item nav-link" href="{% url 'login' %}">Login</a>
-        </div>
-      {% endif %}
+      <div class="navbar-nav ml-auto">
+        <a class="nav-item nav-link" href="{% url 'profile' %}">My Profile</a>
+        <a class="nav-item nav-link btn btn-secondary" href="{% url 'logout' %}">Logout</a>
       </div>
-    </nav>
+      {% else %}
+      <div class="navbar-nav ml-auto">
+        <a class="nav-item btn btn-primary" href="{% url 'login' %}">Login</a>
+        <a class="nav-item nav-link" href="{% url 'signup' %}">Sign Up</a>
+      </div>
+      {% endif %}
+    </div>
+  </nav>
 
   {% block content %}
   {% endblock %}
 
-<nav class="navbar navbar-light bg-light">
-  <a class="navbar-brand" href="#"><h6>Lost Password?</h6></a>
-  <a class="navbar-brand" href="#"><h6>Contact us</h6></a>
-</nav>
-
-
 
   <!-- Bootstrap core JavaScript
     ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <!-- Placed at the end of the document so the pages load faster -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
   </body>
-  </html>
+
+</html>
