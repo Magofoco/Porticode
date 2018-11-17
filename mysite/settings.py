@@ -132,5 +132,4 @@ MEDIA_URL = '/media/'
 
 # Authentication USER
 
-LOGIN_REDIRECT_URL = "HOME"
 LOGOUT_REDIRECT_URL = "home"

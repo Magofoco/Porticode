@@ -10,7 +10,7 @@
 
 <h1>Add a book to exchange</h1>
 
-<form method="POST" action="{% url 'create' %}" enctype="multipart/form-data">
+<form method="POST" action="{% url 'createexchangebook' %}" enctype="multipart/form-data">
   {% csrf_token %}
   Title:
   <br>

@@ -20,7 +20,11 @@
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       {% if user.is_authenticated %}
         <div class="navbar-nav ml-auto">
-          <a class="nav-item nav-link" href="{% url 'create' %}">Add a book</a>
+
+          <a class="nav-item nav-link" href="{% url 'createfreebook' %}">Add a FREE book</a>
+
+          <a class="nav-item nav-link" href="{% url 'createexchangebook' %}">Add a EXCHANGE book</a>
+
           <a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
           <a class="nav-item nav-link" href="{% url 'profile' %}">Your Profile</a>
         </div>

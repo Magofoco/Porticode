@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+BROWSE BOOKS
+<a href="{% url 'home' %}"> Free </a>
+<a href="{% url 'home' %}"> Trade </a>
+
+
+GIVE BOOKS
+<a href="/books/createfreebook"> Free </a>
+<a href="/books/createexchangebook"> Trade </a>
+
+{% endblock %}
