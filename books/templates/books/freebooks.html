@@ -10,7 +10,7 @@ YOU ARE SEEING ONLY THE BOOKS WHICH ARE: FREE
   {% for book in books.all %}
     {% if book.exchange_choices == "FREE" %}
         <div class="col-3">
-          <a href="{{ book.id}}">
+          <a href="freebook/{{ book.id}}">
             <div class="card">
               <img class="card-img-top" src="{{ book.image.url}}" width="336" height="224" alt="Card image cap">
               <div class="card-body">

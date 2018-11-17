@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<br>
+YOU ARE SEEING ONLY THE BOOKS WHICH ARE: EXCHANGE
+<div class="row">
+
+  <br>
+  {% for book in books.all %}
+
+    {% if book.exchange_choices == "BARTER" %}
+    <p>{{book.exchange_choices}}</p>
+      <div class="col-3">
+        <a href="{{ book.id}}">
+          <div class="card">
+            <img class="card-img-top" src="{{ book.image.url}}" width="336" height="224" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">{{ book.title}}</h5>
+              <p class="card-text">{{ book.exchange_choices}}</p>
+              <p class="card-text">{{ book.condition_choices}}</p>
+            </div>
+          </div>
+        </a>
+      </div>
+    {% endif %}
+
+  {% endfor %}
+</div>
+
+
+{% endblock %}

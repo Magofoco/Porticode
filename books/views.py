@@ -17,12 +17,12 @@ def allbooks(request):
 
 
 def freebooks(request):
-    books = Book.objects.filter(exchange_choices=FREE)
+    books = Book.objects.filter(exchange_choices="FREE")
     return render(request, "books/freebooks.html", {"books": books})
 
 
 def exchangebooks(request):
-    books = Book.objects.filter(exchange_choices=BARTER)
+    books = Book.objects.filter(exchange_choices="BARTER")
     return render(request, "books/exchangebooks.html", {"books": books})
 
 
@@ -71,3 +71,18 @@ def createexchangebook(request):
 def detail(request, book_id):
     book = get_object_or_404(Book, pk=book_id)
     return render(request, "books/detail.html", {"book": book})
+
+
+def exchangebook_detail(request, book_id):
+    book = get_object_or_404(Book, pk=book_id)
+    return render(request, "books/exchangebook_detail.html", {"book": book})
+
+
+def free_detail(request, book_id):
+    book = get_object_or_404(Book, pk=book_id)
+    return render(request, "books/free_detail.html", {"book": book})
+
+
+def free_book_contact(request, book_id):
+    book = get_object_or_404(Book, pk=book_id)
+    return render(request, "books/free_book_contact.html")
