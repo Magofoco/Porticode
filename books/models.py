@@ -48,6 +48,7 @@ class UserProfile(models.Model):
     location = models.CharField(max_length=150, null=True)
 
 
+
 # we are hooking the create_user_profile and save_user_profile methods to the User model,
 # whenever a save event occurs. This kind of signal is called post_save
 
