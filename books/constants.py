@@ -29,3 +29,31 @@ STATUS_CHOICES = (
     (PENDING, 'Pending for approval'),
     (EXCHANGED, 'Exhanged already')
 )
+
+GENRE_CHOICES = (
+    ('m', 'Masculine'),
+    ('f', 'Feminine'),
+)
+
+PREFERENCE_CHOICES = (
+    ('Science fiction', 'Science fiction'),
+    ('Romance', 'Romance'),
+    ('Horror', 'Horror'),
+    ('Travel', 'Travel'),
+    ('Satire', 'Satire'),
+    ('Religion', 'Religion'),
+    ('History', 'History'),
+    ('Science', 'Science'),
+    ('Poetry', 'Poetry'),
+    ('Encyclopedias', 'Encyclopedias'),
+    ('Dictionaries', 'Dictionaries'),
+    ('Comics', 'Comics'),
+    ('Art', 'Art'),
+    ('Cookbooks', 'Cookbooks'),
+    ('Diaries', 'Diaries'),
+    ('Journals', 'Journals'),
+    ('Prayer', 'Prayer'),
+    ('Series', 'Series'),
+    ('Biographies', 'Biographies'),
+    ('Fantasy', 'Fantasy'),
+)

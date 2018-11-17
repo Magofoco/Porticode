@@ -1,6 +1,11 @@
+import datetime
+
 from django.db import models
 from django.contrib.auth.models import User
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 from books.constants import EXCHANGE_CHOICES, CONDITION_CHOICES, STATUS_CHOICES, OPEN
+from books.constants import GENRE_CHOICES, PREFERENCE_CHOICES
 
 
 class Book(models.Model):
@@ -24,3 +29,35 @@ class Book(models.Model):
 
     def pub_date_pretty(self):
         return self.pub_date.strftime('%d %B %Y')
+
+
+class UserProfile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
+    preference1 = models.CharField(max_length=100, choices=PREFERENCE_CHOICES, null=True,
+                                   default=PREFERENCE_CHOICES[0][0])
+    preference2 = models.CharField(max_length=100, choices=PREFERENCE_CHOICES, null=True,
+                                   default=PREFERENCE_CHOICES[4][0])
+    preference3 = models.CharField(max_length=100, choices=PREFERENCE_CHOICES, null=True,
+                                   default=PREFERENCE_CHOICES[3][0])
+    preference4 = models.CharField(max_length=100, choices=PREFERENCE_CHOICES, null=True,
+                                   default=PREFERENCE_CHOICES[13][0])
+    preference5 = models.CharField(max_length=100, choices=PREFERENCE_CHOICES, null=True,
+                                   default=PREFERENCE_CHOICES[5][0])
+    birth_date = models.DateField(null=True, default=datetime.date(2015, 1, 1))
+    genre = models.CharField(max_length=1, choices=GENRE_CHOICES, null=True)
+    location = models.CharField(max_length=150, null=True)
+
+
+# we are hooking the create_user_profile and save_user_profile methods to the User model,
+# whenever a save event occurs. This kind of signal is called post_save
+
+@receiver(post_save, sender=User)
+def create_user_profile(sender, instance, created, **kwargs):
+    if created:
+        UserProfile.objects.create(user=instance)
+        print("a")
+
+
+@receiver(post_save, sender=User)
+def save_user_profile(sender, instance, **kwargs):
+    instance.userprofile.save()
