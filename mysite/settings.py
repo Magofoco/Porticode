@@ -77,12 +77,8 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'bookbarterdb',
-        'USER': 'francescostefani',
-        'PASSWORD': 'Banana33',
-        'HOST': 'localhost',
-        'PORT': '5433',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR,'db.bookbarterdb'),
     }
 }
 
