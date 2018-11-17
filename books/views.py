@@ -9,9 +9,17 @@ def welcome(request):
   books = Book.objects
   return render(request, "books/welcome.html")
 
-def home(request):
+def allbooks(request):
   books = Book.objects
-  return render(request, "books/home.html", {"books":books})
+  return render(request, "books/allbooks.html", {"books":books})
+
+def freebooks(request):
+  books = Book.objects
+  return render(request, "books/freebooks.html", {"books":books})
+
+def exchangebooks(request):
+  books = Book.objects
+  return render(request, "books/exchangebooks.html", {"books":books})
 
 @login_required
 def createfreebook(request):
