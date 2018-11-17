@@ -1,7 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
 BROWSE
 
-<a href="">Free</a>
-<a href="">Exchange</a>
+<a href="/books/freebooks">Free</a>
+<a href="/books/exchangebooks">Exchange</a>
 
 <br>
 <br>
@@ -10,3 +14,4 @@ BROWSE
 GIVE IT
 <a href="/books/createfreebook"> Free </a>
 <a href="/books/createexchangebook"> Exchange</a>
+{% endblock %}
