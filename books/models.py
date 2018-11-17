@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from books.constants import EXCHANGE_CHOICES, CONDITION_CHOICES, STATUS_CHOICES, OPEN
+from books.constants import GENRE_CHOICES, PREFERENCE_CHOICES
 
 
 class Book(models.Model):
@@ -24,3 +25,15 @@ class Book(models.Model):
 
     def pub_date_pretty(self):
         return self.pub_date.strftime('%d %B %Y')
+
+
+class UserProfile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True, )
+    college = models.CharField(max_length=30)
+    preference1 = models.CharField(max_length=100, choices=PREFERENCE_CHOICES, null=True)
+    preference2 = models.CharField(max_length=100, choices=PREFERENCE_CHOICES, null=True)
+    preference3 = models.CharField(max_length=100, choices=PREFERENCE_CHOICES, null=True)
+    preference4 = models.CharField(max_length=100, choices=PREFERENCE_CHOICES, null=True)
+    birth_date = models.DateField(null=True)
+    genre = models.CharField(max_length=1, choices=GENRE_CHOICES, null=True)
+    location = models.CharField(max_length=150, null=True)
