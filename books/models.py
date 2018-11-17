@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from books.constants import EXCHANGE_CHOICES, CONDITION_CHOICES, STATUS_CHOICES, OPEN
-from books.constants import GENRE_CHOICES, PREFERENCE_CHOICES
+from books.constants import GENDER_CHOICES, PREFERENCE_CHOICES
 
 
 class Book(models.Model):
@@ -43,9 +43,10 @@ class UserProfile(models.Model):
                                    default=PREFERENCE_CHOICES[13][0])
     preference5 = models.CharField(max_length=100, choices=PREFERENCE_CHOICES, null=True,
                                    default=PREFERENCE_CHOICES[5][0])
-    birth_date = models.DateField(null=True, default=datetime.date(1995, 7, 12))
-    genre = models.CharField(max_length=1, choices=GENRE_CHOICES, null=True, default=GENRE_CHOICES[0][1])
-    location = models.CharField(max_length=150, null=True, default="London, Fulham")
+    birth_date = models.DateField(null=True, default=datetime.date(2015, 1, 1))
+    gender = models.CharField(max_length=1, choices=GENDER_CHOICES, null=True)
+    location = models.CharField(max_length=150, null=True)
+
 
 
 # we are hooking the create_user_profile and save_user_profile methods to the User model,
