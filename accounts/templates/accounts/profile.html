@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<h6>Hello {{ user.username }}</h6>
+
+Your listings are:
+<div class="row">
+  <br>
+  {% for book in books.all %}
+  <div class="col-2">
+    <a href="{{ book.id}}">
+      <div class="card">
+        <img class="card-img-top" src="{{ book.image.url}}" width="270" height="150" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">{{ book.title}}</h5>
+          <p class="card-text">{{ book.exchange_choices}}</p>
+          <p class="card-text">{{ book.condition_choices}}</p>
+          <p class="card-text">Delete book</p>
+        </div>
+      </div>
+    </a>
+  </div>
+  {% endfor %}
+</div>
+
+{% endblock %}
