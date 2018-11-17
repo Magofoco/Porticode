@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from books.constants import EXCHANGE_CHOICES, CONDITION_CHOICES, STATUS_CHOICES, OPEN
-from books.constants import GENRE_CHOICES, PREFERENCE_CHOICES
+from books.constants import GENDER_CHOICES, PREFERENCE_CHOICES
 
 
 class Book(models.Model):
@@ -44,7 +44,7 @@ class UserProfile(models.Model):
     preference5 = models.CharField(max_length=100, choices=PREFERENCE_CHOICES, null=True,
                                    default=PREFERENCE_CHOICES[5][0])
     birth_date = models.DateField(null=True, default=datetime.date(2015, 1, 1))
-    genre = models.CharField(max_length=1, choices=GENRE_CHOICES, null=True)
+    gender = models.CharField(max_length=1, choices=GENDER_CHOICES, null=True)
     location = models.CharField(max_length=150, null=True)
 
 
