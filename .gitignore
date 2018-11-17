@@ -1,3 +1,4 @@
 *.pyc
+mysite/*.pyc
 *.db
 db.bookbarterdb
