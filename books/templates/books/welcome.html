@@ -1,17 +1,29 @@
-{% extends 'base.html' %}
-
+{% extends "base.html" %}
 {% block content %}
 
-BROWSE
+<body class="bg">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="vertical-center">
+          <div>
+            <h1 class="text-light">Get A Book</h1>
+            <a class="btn btn-primary" href="/books/createfreebook">For Free</a>
+            <a class="btn btn-secondary" href="/books/createexchangebook">Exchange</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="vertical-center text-center">
+          <div>
+            <h1 class="text-light">Give A Book</h1>
+            <a class="btn btn-primary" href="/books/createfreebook">For Free</a>
+            <a class="btn btn-secondary" href="/books/createexchangebook">Exchange</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
 
-<a href="/books/freebooks">Free</a>
-<a href="/books/exchangebooks">Exchange</a>
-
-<br>
-<br>
-<br>
-
-GIVE IT
-<a href="/books/createfreebook"> Free </a>
-<a href="/books/createexchangebook"> Exchange</a>
 {% endblock %}

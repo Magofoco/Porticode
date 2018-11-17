@@ -2,9 +2,48 @@
 
 {% block content %}
 
-{% if form.errors %}
-  <p>Your username and password didn't match. Please try again.</p>
-{% endif %}
+<body class="bg-primary">
+
+<div class="container vertical-center">
+  <div></div>
+  <div class="col-lg-4">
+    <div class="jumbotron align-center">
+      <h2> Log In </h2>
+      <br>
+      <p>
+      {% if form.errors %}
+        Your username and password didn't match. Please try again.
+      {% endif %}
+      </p>
+      <form method="POST" action="{% url 'login' %}">
+        {% csrf_token %}
+        <div class="form-group">
+          <input type="email" class="form-control" placeholder="Username">
+        </div>
+        <div class="form-group">
+          <input type="password" class="form-control" placeholder="Password">
+        </div>
+        <button type="submit" class="btn btn-primary form-control">Submit</button>
+      </form>
+    </div>
+  <div class="col-lg-4"></div>
+  </div>
+</div>
+
+<!-- <div class="container">
+  {% if form.errors %}
+    <p>Your username and password didn't match. Please try again.</p>
+  {% endif %}
+  <div class="col-lg-4"></div>
+  <div class="col-lg-4">
+    <div class="jumbotron">
+
+    </div>
+  </div>
+  <div class="col-lg-4"></div>
+  <div class="col-lg-4"></div>
+</div>
+
 
 {% if next %}
   {% if user.is_authenticated %}
@@ -33,6 +72,8 @@
 </div>
 </form>
 
-<p><a href="{% url 'password_reset' %}">Lost password?</a></p>
+<p><a href="{% url 'password_reset' %}">Lost password?</a></p> -->
+
+</body>
 
 {% endblock %}
