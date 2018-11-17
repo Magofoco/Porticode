@@ -43,9 +43,9 @@ class UserProfile(models.Model):
                                    default=PREFERENCE_CHOICES[13][0])
     preference5 = models.CharField(max_length=100, choices=PREFERENCE_CHOICES, null=True,
                                    default=PREFERENCE_CHOICES[5][0])
-    birth_date = models.DateField(null=True, default=datetime.date(2015, 1, 1))
-    genre = models.CharField(max_length=1, choices=GENRE_CHOICES, null=True)
-    location = models.CharField(max_length=150, null=True)
+    birth_date = models.DateField(null=True, default=datetime.date(1995, 7, 12))
+    genre = models.CharField(max_length=1, choices=GENRE_CHOICES, null=True, default=GENRE_CHOICES[0][1])
+    location = models.CharField(max_length=150, null=True, default="London, Fulham")
 
 
 # we are hooking the create_user_profile and save_user_profile methods to the User model,
