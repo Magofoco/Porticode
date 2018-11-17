@@ -10,7 +10,7 @@
 
 <h1>Add a book to exchange</h1>
 
-<form method="POST" action="{% url 'create' %}" enctype="multipart/form-data">
+<form method="POST" action="{% url 'createexchangebook' %}" enctype="multipart/form-data">
   {% csrf_token %}
   Title:
   <br>
@@ -22,15 +22,12 @@
   <input type="textbox" name="body" />
   <br>
   <br>
-  Exchange choices:
+  This books is going to be uploaded as:
+  <input type="radio" name="exchange_choices" value="FREE" default="FREE"> Free
   <br>
-  <input type="radio" name="exchange_choices" value="FREE"> Free
-  <br>
-  <input type="radio" name="exchange_choices" value="BARTER"> Barter
-  <br>
-  <input type="radio" name="exchange_choices" value="PAID"> Paid
-  <input type="number" step="0.01" name="book_price" value="BOOK_PRICE" placeholder="Price you want to sell"> £
-  <br>
+  If you want to change, please go to:
+  <a href="{% url 'welcome' %}">Change medium</a>
+
   <br>
   Book condition:
   <br>
