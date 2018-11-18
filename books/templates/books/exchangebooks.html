@@ -2,31 +2,64 @@
 
 {% block content %}
 
-<br>
-YOU ARE SEEING ONLY THE BOOKS WHICH ARE: EXCHANGE
-<div class="row">
+<body class="bg">
+  <div id="title-allbooks">
+    ALL BOOKS TO EXCHANGE
+  </div>
 
-  <br>
-  {% for book in books.all %}
+<div class="container-fluid" id="container-allbooks">
+  <div class="row" id="row-allbooks">
+    {% for book in books.all %}
+    <div class="col-3">
+      <a href="{{ book.id}}">
+        <div class="card ">
+          <img class="card-img-top" src="{{ book.image.url}}" width="1" height="300" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">{{ book.title}}</h5>
 
-    {% if book.exchange_choices == "BARTER" %}
-    <p>{{book.exchange_choices}}</p>
-      <div class="col-3">
-        <a href="{{ book.id}}">
-          <div class="card">
-            <img class="card-img-top" src="{{ book.image.url}}" width="336" height="224" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">{{ book.title}}</h5>
-              <p class="card-text">{{ book.exchange_choices}}</p>
-              <p class="card-text">{{ book.condition_choices}}</p>
-            </div>
+
+            {% if book.exchange_choices == "FREE" %}
+            <p class="card-text">
+            For free</p>
+            {% endif %}
+
+            {% if book.exchange_choices == "BARTER" %}
+            <p class="card-text">
+            To exchange </p>
+            {% endif %}
+
+            {% if book.condition_choices == "NEW" %}
+            <p class="card-text">
+            New</p>
+            {% endif %}
+
+            {% if book.condition_choices == "USED_NEW" %}
+            <p class="card-text">
+            Used but like new</p>
+            {% endif %}
+
+            {% if book.condition_choices == "USED_GOOD" %}
+            <p class="card-text">
+            Used and in good state</p>
+            {% endif %}
+
+            {% if book.condition_choices == "USED_JADED" %}
+            <p class="card-text">
+            Used </p>
+            {% endif %}
+
+
+            </p>
           </div>
-        </a>
-      </div>
-    {% endif %}
-
-  {% endfor %}
+        </div>
+      </a>
+      <br>
+    </div>
+    {% endfor %}
+  </div>
 </div>
 
+
+</body>
 
 {% endblock %}
