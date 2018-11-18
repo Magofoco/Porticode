@@ -2,85 +2,91 @@
 
 {% block content %}
 
-<div class="row">
+<body class="bg">
+
+
+  <div class="row">
     <div class="col-2">
-        <img src="{{ book.icon.url }}" class="img-fluid"/>
+      <img src="{{ book.icon.url }}" class="img-fluid" />
     </div>
     <div class="col-10">
-        <a href="{{ book.url }}"><h1>{{ book.title }}</h1></a>
+      <a href="{{ book.url }}">
+        <h1>{{ book.title }}</h1>
+      </a>
     </div>
-</div>
+  </div>
 
-<div class="row">
+  <div class="row">
     <div class="col-5">
-        <img src="{{ book.image.url }}" width="640" height="480" class="img-fluid"/>
+      <img src="{{ book.image.url }}" width="640" height="480" class="img-fluid" />
     </div>
 
     <div class="col-4">
-        <h3>Book description:</h3>
-        <p>{{ book.body }}"</p>
+      <h3>Book description:</h3>
+      <p>{{ book.body }}"</p>
     </div>
     <div class="col-3">
-        <h3>Posted by:</h3>
-        <p>{{book.original_poster}}</p>
-        <p>On: {{ book.pub_date_pretty }}</p>
-        <br>
+      <h3>Posted by:</h3>
+      <p>{{book.original_poster}}</p>
+      <p>On: {{ book.pub_date_pretty }}</p>
+      <br>
 
-        <h3>Exchange medium:</h3>
-        {% if book.exchange_choices == "PAID" %}
-        <p>{{book.exchange_choices}}</p>
-        <p>Asked price: {{book.book_price}} £</p>
-        {% else%}
-        <p>{{book.exchange_choices}}</p>
-        {% endif %}
-        <br>
-        <br>
+      <h3>Exchange medium:</h3>
+      {% if book.exchange_choices == "PAID" %}
+      <p>{{book.exchange_choices}}</p>
+      <p>Asked price: {{book.book_price}} £</p>
+      {% else%}
+      <p>{{book.exchange_choices}}</p>
+      {% endif %}
+      <br>
+      <br>
 
-        <h3>Condition of the book:</h3>
-        {% if book.condition_choices == "NEW" %}
-        <p>New - Never used</p>
-        {% elif book.condition_choices == "USED_NEW" %}
-        <p>Used but seems still new</p>
-        {% elif book.condition_choices == "USED_GOOD" %}
-        <p>Used but in good conditions</p>
-        {% elif book.condition_choices == "USED_JADED" %}
-        <p>Used and you can see it</p>
-        {% endif %}
-        <br>
-        <br>
+      <h3>Condition of the book:</h3>
+      {% if book.condition_choices == "NEW" %}
+      <p>New - Never used</p>
+      {% elif book.condition_choices == "USED_NEW" %}
+      <p>Used but seems still new</p>
+      {% elif book.condition_choices == "USED_GOOD" %}
+      <p>Used but in good conditions</p>
+      {% elif book.condition_choices == "USED_JADED" %}
+      <p>Used and you can see it</p>
+      {% endif %}
+      <br>
+      <br>
 
-        <h3>Status of the book:</h3>
-        {% if book.status_choices == "OP" %}
-        <p>Open to be exchanged </p>
-        {% elif book.status_choices == "PE" %}
-        <p>Pending/p>
-            {% elif book.status_choices == "EX" %}
+      <h3>Status of the book:</h3>
+      {% if book.status_choices == "OP" %}
+      <p>Open to be exchanged </p>
+      {% elif book.status_choices == "PE" %}
+      <p>Pending/p>
+        {% elif book.status_choices == "EX" %}
         <p>Exchanged</p>
         {% endif %}
         <br>
         <br>
 
     </div>
-</div>
+  </div>
 
-{% if user.is_authenticated %}
+  {% if user.is_authenticated %}
 
-<div class="row">
+  <div class="row">
     <div class="offset-8 col-2">
-        <a class="btn btn-primary" href="/books/free_book_contact/{{book.id}}">For Free</a>
+      <a class="btn btn-primary" href="/books/free_book_contact/{{book.id}}">For Free</a>
     </div>
-</div>
+  </div>
 
-{% else %}
-<div class="row">
+  {% else %}
+  <div class="row">
     <div class="offset-8 col-4">
-        <p> To trade the book or contact the user, you need to: <a href="{% url 'signup' %}">Sign Up</a> or <a
-                href="{% url 'login' %}"> Login</a></p>
+      <p> To trade the book or contact the user, you need to: <a href="{% url 'signup' %}">Sign Up</a> or <a href="{% url 'login' %}">
+          Login</a></p>
 
     </div>
-</div>
+  </div>
 
-{% endif %}
+  {% endif %}
 
+</body>
 
 {% endblock %}
