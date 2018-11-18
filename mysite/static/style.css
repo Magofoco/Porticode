@@ -5,7 +5,7 @@ body, html {
 .bg {
     /* The image used */
     background-image: url("/static/img/QpjXam.jpg");
-  
+
     /* Center and scale the image nicely */
     background-position: center center;
     background-repeat: no-repeat;
@@ -15,9 +15,13 @@ body, html {
 .vertical-center {
     min-height: 90%;
     min-height: 90vh;
-  
+
     display: flex;
     align-items: center;
     text-align: center;
     justify-content: center;
+}
+
+.dropdown-menu {
+  background-color: ;
 }

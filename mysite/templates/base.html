@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
     crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
-  
+
   <!-- scripts -->
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
     crossorigin="anonymous"></script>
@@ -33,7 +33,7 @@
       aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+<!--     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       {% if user.is_authenticated %}
       <div class="navbar-nav ml-auto">
         <a class="nav-item nav-link" href="{% url 'welcome' %}">Home</a>
@@ -47,7 +47,40 @@
         <a class="nav-item btn btn-primary" href="{% url 'login' %}">Login</a>
       </div>
       {% endif %}
-    </div>
+    </div> -->
+    {% if user.is_authenticated %}
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'welcome' %}">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'profile' %}">My Profile</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Add a book
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="{% url 'createfreebook' %}">For Free</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="{% url 'createexchangebook' %}">To Exchange</a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+            </li>
+          </ul>
+      </div>
+    {% else %}
+      <div class="navbar-nav ml-auto">
+        <a class="nav-item nav-link" href="{% url 'welcome' %}">Home</a>
+        <a class="nav-item nav-link" href="{% url 'signup' %}">Sign Up</a>
+        <a class="nav-item btn btn-primary" href="{% url 'login' %}">Login</a>
+      </div>
+    {% endif %}
+
+
   </nav>
 </header>
   {% block content %}
