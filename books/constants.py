@@ -31,8 +31,8 @@ STATUS_CHOICES = (
 )
 
 GENDER_CHOICES = (
-    ('m', 'Masculine'),
-    ('f', 'Feminine'),
+    ('m', 'Male'),
+    ('f', 'Female'),
     ('o', 'Other')
 )
 
