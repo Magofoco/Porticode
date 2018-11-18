@@ -2,41 +2,42 @@
 
 {% block content %}
 
-
-<h6>Hello {{ user.username }}</h6>
-<div>
+<body style="background-color: #6BB369">
+  <h6>Hello {{ user.username }}</h6>
+  <div>
     <h6>Personal information:</h6>
     <br>Birth date:{{ user_profile.birth_date }}
     <br>Gender {{ user_profile.gender }}
     <br>Location: {{ user_profile.location }}
-</div>
-<br>
-<div>
+  </div>
+  <br>
+  <div>
     <h6>Preferences:</h6>
     <br>{{ user_profile.preference1 }}
     <br>{{ user_profile.preference2 }}
     <br>{{ user_profile.preference3 }}
     <br>{{ user_profile.preference4 }}
     <br>{{ user_profile.preference5 }}
-</div>
-<div class="row">
+  </div>
+  <div class="row">
     <br>
     {% for book in books %}
     <div class="col-2">
-        <a href="{{ book.id}}">
-            <div class="card">
-                <img class="card-img-top" src="{{ book.image.url}}" width="270" height="150" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">{{ book.title}}</h5>
-                    <p class="card-text">{{ book.exchange_choices}}</p>
-                    <p class="card-text">{{ book.condition_choices}}</p>
-                    <p class="card-text">Delete book</p>
-                </div>
-            </div>
-        </a>
+      <a href="{{ book.id}}">
+        <div class="card">
+          <img class="card-img-top" src="{{ book.image.url}}" width="270" height="150" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">{{ book.title}}</h5>
+            <p class="card-text">{{ book.exchange_choices}}</p>
+            <p class="card-text">{{ book.condition_choices}}</p>
+            <p class="card-text">Delete book</p>
+          </div>
+        </div>
+      </a>
     </div>
     {% endfor %}
-</div>
+  </div>
+</body>
 
 
 {% endblock %}
