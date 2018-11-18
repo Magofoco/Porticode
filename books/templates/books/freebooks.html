@@ -3,30 +3,62 @@
 {% block content %}
 
 <body class="bg">
+  <div id="title-allbooks">
+    ALL BOOKS FOR FREE
+  </div>
 
-  <br>
-  YOU ARE SEEING ONLY THE BOOKS WHICH ARE: FREE
-  <div class="row">
-
-    <br>
+<div class="container-fluid" id="container-allbooks">
+  <div class="row" id="row-allbooks">
     {% for book in books.all %}
-    {% if book.exchange_choices == "FREE" %}
     <div class="col-3">
-      <a href="freebook/{{ book.id}}">
-        <div class="card">
-          <img class="card-img-top" src="{{ book.image.url}}" width="336" height="224" alt="Card image cap">
+      <a href="{{ book.id}}">
+        <div class="card ">
+          <img class="card-img-top" src="{{ book.image.url}}" width="1" height="300" alt="Card image cap">
           <div class="card-body">
             <h5 class="card-title">{{ book.title}}</h5>
-            <p class="card-text">{{ book.exchange_choices}}</p>
-            <p class="card-text">{{ book.condition_choices}}</p>
+
+
+            {% if book.exchange_choices == "FREE" %}
+            <p class="card-text">
+            For free</p>
+            {% endif %}
+
+            {% if book.exchange_choices == "BARTER" %}
+            <p class="card-text">
+            To exchange </p>
+            {% endif %}
+
+            {% if book.condition_choices == "NEW" %}
+            <p class="card-text">
+            New</p>
+            {% endif %}
+
+            {% if book.condition_choices == "USED_NEW" %}
+            <p class="card-text">
+            Used but like new</p>
+            {% endif %}
+
+            {% if book.condition_choices == "USED_GOOD" %}
+            <p class="card-text">
+            Used and in good state</p>
+            {% endif %}
+
+            {% if book.condition_choices == "USED_JADED" %}
+            <p class="card-text">
+            Used </p>
+            {% endif %}
+
+
+            </p>
           </div>
         </div>
       </a>
+      <br>
     </div>
-    {% endif %}
-
     {% endfor %}
   </div>
+</div>
+
 
 </body>
 

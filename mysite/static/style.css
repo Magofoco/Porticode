@@ -30,6 +30,36 @@ body, html, .book-container{
   background-color: ;
 }
 
+#container-allbooks {
+  margin-top: 40px;
+  margin-bottom: ;
+}
+
+#title-allbooks {
+  margin-top: 10px;
+  color: white;
+  font-size: 50px;
+  text-align: center;
+  font-weight: bold;
+  text-shadow: 1px 1px #d8d8d8;
+}
+
+#title-freebooks {
+  margin-top: 10px;
+  color: white;
+  font-size: 50px;
+  text-align: center;
+  font-weight: bold;
+  text-shadow: 1px 1px #d8d8d8;
+}
+
+
+#container-freebooks {
+  margin-top: 40px;
+  margin-bottom: ;
+}
+
+
 {
     margin: 0;
     padding: 0;
