@@ -10,12 +10,13 @@ from books.constants import GENDER_CHOICES, PREFERENCE_CHOICES
 
 class Book(models.Model):
     title = models.CharField(max_length=255)
+    isbn = models.CharField(max_length=255, null=True)
     pub_date = models.DateTimeField(null=True)
     body = models.TextField(null=True)
     url = models.TextField(null=True)
     image = models.ImageField(upload_to='images/', null=True)
-    original_poster = models.ForeignKey(User, on_delete=models.CASCADE)
-    book_price = models.FloatField(default=0)
+    original_poster = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+    book_price = models.FloatField(default=0, null=True)
     exchange_choices = models.CharField(max_length=100, choices=EXCHANGE_CHOICES)
     condition_choices = models.CharField(
         max_length=100,

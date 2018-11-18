@@ -1,10 +1,17 @@
 from books.constants import EXCHANGE_CHOICES, CONDITION_CHOICES, STATUS_CHOICES, OPEN
+from django.core.files import File
 from books.constants import GENDER_CHOICES, PREFERENCE_CHOICES
-import random
 from django.core.management.base import BaseCommand
 from books.models import Book, User
 from utils.google_api import get_info_from_api
+import random
+import urllib
 import datetime
+import string
+
+
+def random_generator(size=9, chars=string.ascii_uppercase + string.digits):
+    return ''.join(random.choice(chars) for x in range(size))
 
 
 class Command(BaseCommand):
@@ -29,38 +36,45 @@ class Command(BaseCommand):
 
     def _create_books(self):
         i = 0
-        while i < 1:
-            response, str_isbn = get_info_from_api(i)
+        books_added = 0
+        int_isbn = 9780140361216
+        while i < 5:
+            response, str_isbn = get_info_from_api(int_isbn)
             i = +1
+            int_isbn = int_isbn - i
             if not response:
+                print("No book with this ISBN")
                 continue
             else:
+                books_added = +1
                 user = User.objects.order_by('?').first()
                 isbn = str_isbn
                 title = response['ISBN:' + str_isbn]['title']
                 url = (response['ISBN:' + str_isbn]['url'])
-                year = int(response['ISBN:' + str_isbn]['publish_date'])
+                year = int(response['ISBN:' + str_isbn]['publish_date'][-4:])
                 date_published = datetime.date(year, 7, 12)
                 body = response['ISBN:' + str_isbn]['by_statement']
-                image = response['ISBN:' + str_isbn]['cover']['large']
-                Book.objects.create(original_poster=user,
-                                    title=title,
-                                    pub_date=date_published,
-                                    body = body,
-                                    url = url,
-                                    # image = models.ImageField(upload_to='images/', null=True),
-                                    exchange_choices = models.CharField(max_length=100, choices=EXCHANGE_CHOICES)
-                                    condition_choices = models.CharField(
-                max_length=100,
-                choices=CONDITION_CHOICES,
-            )
-            status_choices = models.CharField(
-                max_length=100,
-                choices=STATUS_CHOICES,
-                default=OPEN,
-            )
+                image_link = response['ISBN:' + str_isbn]['cover']['large']
+                filename = random_generator() + ".jpg"
+                urllib.request.urlretrieve(image_link, filename)
+                condition = random.choice([x[1] for x in CONDITION_CHOICES])
+                exchange = random.choice([x[1] for x in EXCHANGE_CHOICES])
+                status = random.choice([x[1] for x in EXCHANGE_CHOICES])
+                book = Book(original_poster=user,
+                            title=title,
+                            pub_date=date_published,
+                            body=body,
+                            url=url,
+                            exchange_choices=exchange,
+                            condition_choices=condition,
+                            status_choices=status)
+                book.image = File(open(filename, 'rb'))
+                book.save()
 
-def handle(self, *args, **options):
-    for i in range(25):
-        self._create_users()
-    print("Successfully populated database with users!")
+    def handle(self, *args, **options):
+        # for i in range(25):
+        #     self._create_users()
+        print("Successfully populated database with users!")
+
+        # self._create_books()
+        print("Successfully populated database with users!")

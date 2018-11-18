@@ -3,9 +3,9 @@ FREE = "FR"
 PAID = "PA"
 BARTER = "BA"
 EXCHANGE_CHOICES = (
-    (FREE, 'Free'),
-    (PAID, 'Paid'),
-    (BARTER, 'Barter')
+    (FREE, 'FREE'),
+    (PAID, 'PAID'),
+    (BARTER, 'BARTER')
 )
 
 # CONDITIONS
@@ -14,10 +14,10 @@ USED_NEW = 'UN'
 USED_GOOD = 'UG'
 USED_JADED = 'UJ'
 CONDITION_CHOICES = (
-    (NEW, 'New - Never Used'),
-    (USED_NEW, 'Used but seems still new'),
-    (USED_GOOD, 'Used but in good conditions'),
-    (USED_JADED, 'Used and you can see it')
+    (NEW, 'NEW'),
+    (USED_NEW, 'USED_NEW'),
+    (USED_GOOD, 'USED_GOOD'),
+    (USED_JADED, 'USED_JADED')
 )
 
 # STATUS
