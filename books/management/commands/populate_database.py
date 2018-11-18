@@ -77,8 +77,7 @@ class Command(BaseCommand):
         print(f"Successfully populated database with {books_added} new books!")
 
     def handle(self, *args, **options):
-        # for i in range(25):
-        #     self._create_users()
-        # print("Successfully populated database with users!")
-
+        for i in range(25):
+            self._create_users()
+        print("Successfully populated database with 25 users!")
         self._create_books()
