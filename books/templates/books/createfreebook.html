@@ -7,42 +7,51 @@
 <br>
 <br>
 {% endif %}
+<div class="container vertical-center">
+    <div></div>
+    <div class="col-lg-4">
+        <div class="jumbotron align-center" style="width: 500px">
+            <h2> Don't need a book anymore? </h2>
+            <h2> Share it with others for free! </h2>
+            <br>
+            <form method="POST" action="{% url 'createexchangebook' %}" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="form-group">
+                    Title: <input type="text" name="title"/>
+                </div>
+                <div class="form-group">
+                    Body: <input type="textbox" name="body"/>
+                </div>
+                <table style="width:100%" align="centre">
+                    <thead>Book condition:</thead>
+                    <br>
+                    <tr>
+                        <td><input type="radio" name="condition_choices" value="NEW">New</td>
+                        <td><input type="radio" name="condition_choices" value="USED_NEW"> Average</td>
+                    </tr>
+                    <tr>
+                        <td><input type="radio" name="condition_choices" value="USED_GOOD"> Good</td>
+                        <td><input type="radio" name="condition_choices" value="USED_JADED"> Bad</td>
+                    </tr>
+                </table>
+                <div class="form-group">
+                    Book image:
+                    <br>
+                    <input type="file" name="image"/>
+                    <br>
+                </div>
+                <br>
+                Thank you for sharing the book with other!
+                <br>
+                <input type="hidden" name="exchange_choices" value="FREE" checked="checked">
+                <br>
+                <input class="btn btn-primary" type="submit" value="Add this book"/>
+                <br>
+            </form>
+        </div>
+        <div class="col-lg-4"></div>
+    </div>
+</div>
 
-<h1>Add a book to exchange as Free</h1>
-
-<form method="POST" action="{% url 'createexchangebook' %}" enctype="multipart/form-data">
-  {% csrf_token %}
-  Title:
-  <br>
-  <input type="text" name="title" />
-  <br>
-  <br>
-  Body:
-  <br>
-  <input type="textbox" name="body" />
-  <br>
-  <br>
-  This books is going to be uploaded as Free
-  <input type="hidden" name="exchange_choices" value="FREE" checked="checked">
-  <br>
-  If you want to change, please go to:
-  <a href="{% url 'welcome' %}">Change medium</a>
-
-  <br>
-  Book condition:
-  <br>
-  <input type="radio" name="condition_choices" value="NEW"> New<br>
-  <input type="radio" name="condition_choices" value="USED_NEW"> Used but like new<br>
-  <input type="radio" name="condition_choices" value="USED_GOOD"> Used but good<br>
-  <input type="radio" name="condition_choices" value="USED_JADED"> Used and jaded
-  <br>
-  <br>
-  Book image:
-  <br>
-  <input type="file" name="image" />
-  <br>
-  <br>
-  <input class="btn btn-primary" type="submit" value="Add book" />
-</form>
 
 {% endblock %}
