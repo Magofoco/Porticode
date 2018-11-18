@@ -2,7 +2,7 @@ body, html {
     height: 100%;
 }
 
-.bg {
+.bg-welcome {
     /* The image used */
     background-image: url("/static/img/QpjXam.jpg");
   
@@ -10,6 +10,10 @@ body, html {
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+.bg {
+    background-color: #6BB369;
 }
 
 .vertical-center {
