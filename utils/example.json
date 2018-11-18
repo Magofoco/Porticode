@@ -1,0 +1,58 @@
+{
+  'ISBN:9780140361216': {
+    'publishers': [
+      {
+        'name': 'Puffin Books'
+      }
+    ],
+    'pagination': '161 p. :',
+    'identifiers': {
+      'lccn': [
+        '92006355'
+      ],
+      'openlibrary': [
+        'OL1705073M'
+      ],
+      'isbn_10': [
+        '0140361219'
+      ],
+      'librarything': [
+        '6101'
+      ],
+      'goodreads': [
+        '623401'
+      ]
+    },
+    'classifications': {
+      'dewey_decimal_class': [
+        '[Fic]'
+      ],
+      'lc_classifications': [
+        'PZ7.M64 Wi 1992'
+      ]
+    },
+    'title': 'Winnie the Pooh',
+    'url': 'https://openlibrary.org/books/OL1705073M/Winnie_the_Pooh',
+    'number_of_pages': 161,
+    'cover': {
+      'small': 'https://covers.openlibrary.org/b/id/101954-S.jpg',
+      'large': 'https://covers.openlibrary.org/b/id/101954-L.jpg',
+      'medium': 'https://covers.openlibrary.org/b/id/101954-M.jpg'
+    },
+    'publish_date': '1992',
+    'key': '/books/OL1705073M',
+    'by_statement': 'A.A. Milne ; with decorations  by Ernest H. Shepard.',
+    'publish_places': [
+      {
+        'name': 'New York, N.Y., U.S.A'
+      }
+    ],
+    'ebooks': [
+      {
+        'formats': {},
+        'preview_url': 'https://archive.org/details/winniepooh00milnrich',
+        'availability': 'restricted'
+      }
+    ]
+  }
+}

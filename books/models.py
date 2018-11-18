@@ -10,10 +10,10 @@ from books.constants import GENDER_CHOICES, PREFERENCE_CHOICES
 
 class Book(models.Model):
     title = models.CharField(max_length=255)
-    pub_date = models.DateTimeField()
-    body = models.TextField()
-    url = models.TextField()
-    image = models.ImageField(upload_to='images/')
+    pub_date = models.DateTimeField(null=True)
+    body = models.TextField(null=True)
+    url = models.TextField(null=True)
+    image = models.ImageField(upload_to='images/', null=True)
     original_poster = models.ForeignKey(User, on_delete=models.CASCADE)
     book_price = models.FloatField(default=0)
     exchange_choices = models.CharField(max_length=100, choices=EXCHANGE_CHOICES)
@@ -46,7 +46,6 @@ class UserProfile(models.Model):
     birth_date = models.DateField(null=True, default=datetime.date(1995, 7, 12))
     gender = models.CharField(max_length=1, choices=GENDER_CHOICES, null=True, default=GENDER_CHOICES[0][1])
     location = models.CharField(max_length=150, null=True, default="London, Fulham")
-
 
 
 # we are hooking the create_user_profile and save_user_profile methods to the User model,
