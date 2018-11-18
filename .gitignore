@@ -2,4 +2,5 @@
 mysite/*.pyc
 **/migrations/*
 *.db
+*.jpg
 db.bookbarterdb
