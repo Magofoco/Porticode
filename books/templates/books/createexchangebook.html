@@ -2,47 +2,49 @@
 
 {% block content %}
 
-{% if error %}
-{{ error }}
-<br>
-<br>
-{% endif %}
+<body>
+  {% if error %}
+  {{ error }}
+  <br>
+  <br>
+  {% endif %}
 
-<h1>Add a book to exchange as Exchange</h1>
+  <h1>Add a book to exchange as Exchange</h1>
 
-<form method="POST" action="{% url 'createexchangebook' %}" enctype="multipart/form-data">
-  {% csrf_token %}
-  Title:
-  <br>
-  <input type="text" name="title" />
-  <br>
-  <br>
-  Body:
-  <br>
-  <input type="textbox" name="body" />
-  <br>
-  <br>
-  This books is going to be uploaded as Exchange
-  <input type="hidden" name="exchange_choices" value="BARTER" checked="checked">
-  <br>
-  If you want to change, please go to:
-  <a href="{% url 'welcome' %}">Change medium</a>
+  <form method="POST" action="{% url 'createexchangebook' %}" enctype="multipart/form-data">
+    {% csrf_token %}
+    Title:
+    <br>
+    <input type="text" name="title" />
+    <br>
+    <br>
+    Body:
+    <br>
+    <input type="textbox" name="body" />
+    <br>
+    <br>
+    This books is going to be uploaded as Exchange
+    <input type="hidden" name="exchange_choices" value="BARTER" checked="checked">
+    <br>
+    If you want to change, please go to:
+    <a href="{% url 'welcome' %}">Change medium</a>
 
-  <br>
-  Book condition:
-  <br>
-  <input type="radio" name="condition_choices" value="NEW"> New<br>
-  <input type="radio" name="condition_choices" value="USED_NEW"> Used but like new<br>
-  <input type="radio" name="condition_choices" value="USED_GOOD"> Used but good<br>
-  <input type="radio" name="condition_choices" value="USED_JADED"> Used and jaded
-  <br>
-  <br>
-  Book image:
-  <br>
-  <input type="file" name="image" />
-  <br>
-  <br>
-  <input class="btn btn-primary" type="submit" value="Add book" />
-</form>
+    <br>
+    Book condition:
+    <br>
+    <input type="radio" name="condition_choices" value="NEW"> New<br>
+    <input type="radio" name="condition_choices" value="USED_NEW"> Used but like new<br>
+    <input type="radio" name="condition_choices" value="USED_GOOD"> Used but good<br>
+    <input type="radio" name="condition_choices" value="USED_JADED"> Used and jaded
+    <br>
+    <br>
+    Book image:
+    <br>
+    <input type="file" name="image" />
+    <br>
+    <br>
+    <input class="btn btn-primary" type="submit" value="Add book" />
+  </form>
+</body>
 
 {% endblock %}
