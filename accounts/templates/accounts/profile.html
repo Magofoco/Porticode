@@ -3,41 +3,122 @@
 {% block content %}
 
 <body style="background-color: #6BB369">
-  <h6>Hello {{ user.username }}</h6>
-  <div>
-    <h6>Personal information:</h6>
-    <br>Birth date:{{ user_profile.birth_date }}
-    <br>Gender {{ user_profile.gender }}
-    <br>Location: {{ user_profile.location }}
-  </div>
-  <br>
-  <div>
-    <h6>Preferences:</h6>
-    <br>{{ user_profile.preference1 }}
-    <br>{{ user_profile.preference2 }}
-    <br>{{ user_profile.preference3 }}
-    <br>{{ user_profile.preference4 }}
-    <br>{{ user_profile.preference5 }}
-  </div>
-  <div class="row">
-    <br>
-    {% for book in books %}
-    <div class="col-2">
-      <a href="{{ book.id}}">
-        <div class="card">
-          <img class="card-img-top" src="{{ book.image.url}}" width="270" height="150" alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">{{ book.title}}</h5>
-            <p class="card-text">{{ book.exchange_choices}}</p>
-            <p class="card-text">{{ book.condition_choices}}</p>
-            <p class="card-text">Delete book</p>
+  <div class="book-container">
+    <div class="profile-header">
+      <h1 class="text-center">{{ user.username }}'s Profile</h1>
+    </div>
+    <div class="prof-content">
+      <div class="prof-wrapper">
+        <div class="RightContent col-lg-6">
+          <h2>Your Books</h2>
+          <br>
+          {% for book in books %}
+          <div class="col-2">
+            <a href="{{ book.id}}">
+              <div class="card">
+                <img class="card-img-top" src="{{ book.image.url}}" width="270" height="150" alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title">{{ book.title}}</h5>
+                  <p class="card-text">{{ book.exchange_choices}}</p>
+                  <p class="card-text">{{ book.condition_choices}}</p>
+                  <p class="card-text">Delete book</p>
+                </div>
+              </div>
+            </a>
+          </div>
+          {% endfor %}
+          <p>this will scroll</p>
+        </div>
+        <div class="LeftContent col-lg-6" style="height:50%">
+          <div>
+            <h2>Your Profile</h2>
+            <div class="row" style="padding:10px; height:50%">
+              <div class="card col-6">
+                <div>
+                  Name: {{user.username}}
+                  <br>Birth date:{{ user_profile.birth_date }}
+                  <br>Gender {{ user_profile.gender }}
+                  <br>Location: {{ user_profile.location }}
+                </div>
+              </div>
+              <div class="col-2"></div>
+              <div class="card col-3">
+                <div>
+                  <3>Your Picture Goes Here</3>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </a>
+        <div class="bg-secondary" style="height:50%">
+          <div class="row">
+            <div class="col-6" style="padding-left:5%">
+              <div>
+                <h4>Book Preferences</h4>
+                <br>{{ user_profile.preference1 }}
+                <br>{{ user_profile.preference2 }}
+                <br>{{ user_profile.preference3 }}
+                <br>{{ user_profile.preference4 }}
+                <br>{{ user_profile.preference5 }}
+              </div>
+            </div>
+            <div class="col-6">
+              <h4>Description</h4>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    {% endfor %}
-  </div>
 </body>
+
+
+
+
+<!-- <div class="row">
+    <div class="col-lg-6">
+      <div>
+        <h1>Your Profile</h1>
+        <div class="card">
+          <div>
+            <h6>Personal information:</h6>
+            <br>Name: {{user.name}}
+            <br>Birth date:{{ user_profile.birth_date }}
+            <br>Gender {{ user_profile.gender }}
+            <br>Location: {{ user_profile.location }}
+          </div>
+        </div>
+        <br>
+        <div>
+          <h6>Preferences:</h6>
+          <br>{{ user_profile.preference1 }}
+          <br>{{ user_profile.preference2 }}
+          <br>{{ user_profile.preference3 }}
+          <br>{{ user_profile.preference4 }}
+          <br>{{ user_profile.preference5 }}
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-6">
+      <h2>Your Books</h2>
+      <br>
+      {% for book in books %}
+      <div class="col-2">
+        <a href="{{ book.id}}">
+          <div class="card">
+            <img class="card-img-top" src="{{ book.image.url}}" width="270" height="150" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">{{ book.title}}</h5>
+              <p class="card-text">{{ book.exchange_choices}}</p>
+              <p class="card-text">{{ book.condition_choices}}</p>
+              <p class="card-text">Delete book</p>
+            </div>
+          </div>
+        </a>
+      </div>
+      {% endfor %}
+    </div>
+  </div> -->
+<!-- </body> -->
 
 
 {% endblock %}
