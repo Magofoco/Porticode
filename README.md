@@ -1,4 +1,4 @@
-BookSpace is a webapp built on Django 2.1.3 enabling it's users to exchange the books they do not need with other users. the app offers possibility to "Give a book away for free" or "Exchange book with others".
+BookSpace is a webapp built on Django 2.1.3 enabling its users to exchange the books they do not need with other users. App offers possibility to "Give a book away for free" or "Exchange book with others".
 
 ![Screenshot](BookSpace.png)
 
