@@ -42,8 +42,9 @@
       </div>
       {% else %}
       <div class="navbar-nav ml-auto">
-        <a class="nav-item btn btn-primary" href="{% url 'login' %}">Login</a>
+        <a class="nav-item nav-link" href="{% url 'welcome' %}">Home</a>
         <a class="nav-item nav-link" href="{% url 'signup' %}">Sign Up</a>
+        <a class="nav-item btn btn-primary" href="{% url 'login' %}">Login</a>
       </div>
       {% endif %}
     </div>
@@ -51,12 +52,4 @@
 </header>
   {% block content %}
   {% endblock %}
-
-
-  <!-- Bootstrap core JavaScript
-    ================================================== -->
-  <!-- Placed at the end of the document so the pages load faster -->
-
-  
-
 </html>
